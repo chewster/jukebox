@@ -1,5 +1,4 @@
 from data.loader import load_library
-from song_queue import checkQueue
 from jukebox import Jukebox
 
 
