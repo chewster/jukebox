@@ -42,3 +42,16 @@ class Jukebox:
     def song_finished(self):
         """Simulate a song ending — advances the queue."""
         self.queue.advance()
+    
+    def show_queue(self) -> str:
+        if self.queue.is_idle:
+            return "Nothing is playing."
+        lines = [f"Now playing: {self.queue.now_playing.title}"]
+        queued = self.queue.list_queue()
+        if not queued:
+            lines.append("No songs queued.")
+        else:
+            lines.append("Up next:")
+            for i, song in enumerate(queued, start=1):
+                lines.append(f"  {i}) {song.title}")
+        return "\n".join(lines)

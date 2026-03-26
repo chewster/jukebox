@@ -37,3 +37,6 @@ class PlayQueue:
         removed = queue_list.pop(index)
         self._queue = deque(queue_list)
         return removed
+    
+    def list_queue(self) -> list[Song]:
+        return list(self._queue)

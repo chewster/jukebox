@@ -5,26 +5,12 @@ from jukebox import Jukebox
 
 def main():
     library = load_library()
-    # Here you would add functionality to interact with the library, such as displaying albums, adding songs to the queue, etc.
-    print("Welcome to the Jukebox!")
-    '''
-    this wasn't asked 
-    username = input("Enter your username: ")
-    checkUser(username)
-    checkQueue = checkQueue()
-    '''
-    if not checkQueue: 
-        print("The song queue is currently empty. Please add songs to the queue to start playing music.")
-    '''
-        addSong = input("Would you like to add a song to the queue? (yes/no) ")
-        if addSong.lower() == "yes":
-            checkSong()
-                # Here you would add functionality to allow the user to select an album and add songs to the queue.
-    '''
     jukebox = Jukebox(library)
 
     #print_header()
-
+    print("\n" + "=" * 40)
+    print("         🎵  WELCOME TO THE JUKEBOX  🎵")
+    print("=" * 40)
     while True:
         print_menu(jukebox.credits.balance, jukebox.free_play)
 
@@ -42,6 +28,9 @@ def main():
                 print(jukebox.insert_money(int(raw)))
 
         elif cmd == "3":
+            if jukebox.credits.balance <= 0 and not jukebox.free_play:
+                print("Please insert money first.")
+                continue
             sel = input("Enter song ID (e.g. 01-04): ").strip()
             print(jukebox.select_song(sel))
 
@@ -73,6 +62,8 @@ def main():
                     print(f"Removed: {removed.title}")
                 else:
                     print("Invalid selection.")
+        elif cmd == "9":
+            print(jukebox.show_queue())
 
         elif cmd == "q":
             print("\nGoodbye! 🎵")
@@ -80,12 +71,6 @@ def main():
 
         else:
             print("Unknown option, try again.")
-
-def print_header():
-    print("\n" + "=" * 40)
-    print("         🎵  WELCOME TO THE JUKEBOX  🎵")
-    print("=" * 40)
-
 
 def print_menu(credits: int, free_play: bool):
     status = "FREE PLAY" if free_play else f"{credits} credit(s)"
@@ -98,6 +83,7 @@ def print_menu(credits: int, free_play: bool):
     print("  6) Song finished (advance queue)")
     print("  7) Toggle free play  [operator]")
     print("  8) Remove song from queue")
+    print("  9) Show queue")
     print("  q) Quit")
     print("-" * 40)
 
