@@ -2,12 +2,10 @@
     "users": [
         {
             "username": "alice",
-            "favorite_genre": "rock",
             "credits": 10
         },
         {
             "username": "bob",
-            "favorite_genre": "jazz",
             "credits": 0
         }
     ]

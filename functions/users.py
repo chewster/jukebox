@@ -17,7 +17,7 @@ def addCredits(username):
     except json.JSONDecodeError:
         print("Error: users.json is not a valid JSON file.")
 
-def checkUsername(username):
+def checkUse(username):
     try: 
         with open("data/users.json", "r") as file:
             foundUsername = False
@@ -28,11 +28,7 @@ def checkUsername(username):
                     print(f"Welcome, {username}!")
                     credits = name['credits']
                     print(f"You have {credits} credits.")
-                    if credits == 0:
-                        print("You have no credits left. Please add more credits to continue using the jukebox.")
-                        credits = input("Would you like to add credits? (yes/no) ")
-                        if credits.lower() == "yes":
-                            addCredits(username)
+                    
                     break
             if not foundUsername:
                 print("Username not found. Please try again. Would you like to create an account? (yes/no)")
