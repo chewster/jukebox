@@ -2,7 +2,7 @@ import pytest
 from models import Song, Album
 from library import Library
 from credits import CreditSystem
-from queue import PlayQueue
+from play_queue import PlayQueue
 from jukebox import Jukebox
 
 # --- Fixtures ---

@@ -1,6 +1,6 @@
 from library import Library
 from credits import CreditSystem
-from queue import PlayQueue
+from play_queue import PlayQueue
 from models import Song
 from typing import Optional
 
@@ -40,7 +40,6 @@ class Jukebox:
         return f"Free play {'enabled' if self.free_play else 'disabled'}."
 
     def song_finished(self):
-        """Simulate a song ending — advances the queue."""
         self.queue.advance()
     
     def show_queue(self) -> str:
