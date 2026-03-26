@@ -11,7 +11,6 @@ def load_library(path: str = "data/albums.json") -> Library:
     albums = []
     for album_index, album_data in enumerate(data["albums"]):
         album_id = f"{album_index + 1:02d}"  # "01", "02", ...
-
         songs = []
         for song_index, song_data in enumerate(album_data["songs"]):
             song_id = f"{song_index + 1:02d}"  # "01", "02", ...
