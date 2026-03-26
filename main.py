@@ -6,8 +6,6 @@ from jukebox import Jukebox
 def main():
     library = load_library()
     jukebox = Jukebox(library)
-
-    #print_header()
     print("\n" + "=" * 40)
     print("         🎵  WELCOME TO THE JUKEBOX  🎵")
     print("=" * 40)
